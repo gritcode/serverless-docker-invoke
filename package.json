@@ -23,9 +23,7 @@
   },
   "homepage": "https://github.com/gritcode/docker-lambda-file-event#readme",
   "dependencies": {
-    "docker-lambda": "^0.9.1"
-  },
-  "devDependencies": {
+    "docker-lambda": "^0.9.1",
     "tap": "^7.1.2"
   }
 }

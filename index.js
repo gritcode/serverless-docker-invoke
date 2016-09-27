@@ -7,4 +7,4 @@ module.exports = options => (fn = 'read', h) => {
   const eventPath = options || process.env.DLFE_PATH || '';
   const event = require(path.join(process.cwd(), eventPath, `${fn}.json`));
   return dockerLambda({ handler, event });
-}
+};

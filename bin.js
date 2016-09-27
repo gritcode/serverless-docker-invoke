@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint import/no-extraneous-dependencies:0 */
-const dockerLambda = require('docker-lambda');
 const dlfe = require('./index.js')();
 
 const fn = process.argv[2];

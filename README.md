@@ -19,7 +19,7 @@ dlfe hello
 
 The handler has to be in the current working directory, but the event.json files do not.  
 ```javascript
-DLFE_PATH=events/ dlfe hello
+DLFE_PATH=events dlfe hello
 ```
 
 ## node.js

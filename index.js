@@ -2,8 +2,6 @@
 const dockerLambda = require('docker-lambda');
 const path = require('path');
 
-// console.log('process.cwd()', process.cwd());
-
 module.exports = options => (fn = 'read', h) => {
   const handler = h || `handler.${fn}`;
   const eventPath = options || process.env.DLFE_PATH || '';

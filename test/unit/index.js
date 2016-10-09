@@ -19,7 +19,8 @@ test('accepts query parameters', t => {
 test('accepts query parameters', t => {
   const cmd = 'npm run -s dlfe -- hello';
   exec(cmd, (error, stdout) => {
-    t.strictSame(stdout, expected);
+    // strip ansi (colors)
+    t.strictSame(stdout.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, ''), `'${expected}'\n`);
     t.end();
   });
 });

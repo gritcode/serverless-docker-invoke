@@ -1,0 +1,5 @@
+service: lambd
+
+functions:
+  greet:
+    handler: handler.hello

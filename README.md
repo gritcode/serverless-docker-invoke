@@ -1,35 +1,22 @@
-# docker-lambda-file-event
+# serverless-docker-invoke
 
-[![Build Status](https://travis-ci.org/gritcode/docker-lambda-file-event.svg?branch=master)](https://travis-ci.org/gritcode/docker-lambda-file-event)
+> Like serverless invoke, but with docker-lambda
 
-> Thin wrapper for passing a json file for a custom event to docker-lambda
+Pretty much just a thin wrapper for passing a json file for a custom event to [docker-lambda](https://github.com/lambci/docker-lambda).  
 
 
 ## cli
 
-Install the module globally.  
-```javascript
-npm i -g gritcode/docker-lambda-file-event
-```
+**Install**  
+`npm i -g gritcode/serverless-docker-invoke`
 
-Assuming we have a `hello.json` and `hello.js` file in the current working directory.  
-```javascript
-dlfe hello
-```
+**Run**  
+`docker-invoke -f <function> -p <event.json>`
 
-The handler has to be in the current working directory, but the event.json files do not.  
-```javascript
-DLFE_PATH=events dlfe hello
-```
 
 ## node.js
 
-Require the module.  
 ```javascript
-const dlfe = require('docker-lambda-file-event');
-```
-
-Assuming we have a `/path/to/event/files/hello.json` and `./hello.js` lambda function.  
-```javascript
-const output = dlfe('/path/to/event/files')('hello');
+const dockerInvoke = require('serverless-docker-invoke');
+const output = dockerInvoke(functionName, eventFile);
 ```

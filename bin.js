@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const dlfe = require('./index.js')();
+const argv = require('yargs').argv;
+const dockerInvoke = require('./index.js');
 
-const fn = process.argv[2];
-const handler = process.argv[3];
+const result = dockerInvoke(argv.f, argv.p);
 
 const isObject = value =>
   Object.prototype.toString.call(value) === '[object Object]';
@@ -22,9 +22,6 @@ const format = obj => {
   obj.body = (isJson(obj.body)) ? JSON.parse(obj.body) : obj.body;
   return obj;
 };
-
-// Spawns synchronously, uses current dir – will throw if it fails
-const result = dlfe(fn, handler);
 
 const output = (isObject(result)) ? format(result) : result;
 

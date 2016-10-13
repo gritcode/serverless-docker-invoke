@@ -1,10 +1,11 @@
 /* eslint import/no-extraneous-dependencies:0 */
 const dockerLambda = require('docker-lambda');
 const path = require('path');
+const YAML = require('yamljs');
 
-module.exports = options => (fn = 'read', h) => {
-  const handler = h || `handler.${fn}`;
-  const eventPath = options || process.env.DLFE_PATH || '';
-  const event = require(path.join(process.cwd(), eventPath, `${fn}.json`));
+module.exports = (f, p) => {
+  const severless = YAML.load('./serverless.yml');
+  const handler = severless.functions[f].handler;
+  const event = require(path.join(process.cwd(), p));
   return dockerLambda({ handler, event });
 };

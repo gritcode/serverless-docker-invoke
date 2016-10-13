@@ -1,30 +1,31 @@
 {
-  "name": "docker-lambda-file-event",
+  "name": "serverless-docker-invoke",
   "version": "1.0.0",
   "description": "Thin wrapper for passing a json file for a custom event to docker-lambda",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/unit",
-    "dlfe": "cd test/fixtures && dlfe"
+    "test": "tap test/unit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gritcode/docker-lambda-file-event.git"
+    "url": "git+https://github.com/gritcode/serverless-docker-invoke.git"
   },
   "preferGlobal": true,
   "bin": {
-    "dlfe": "bin.js"
+    "docker-invoke": "bin.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gritcode/docker-lambda-file-event/issues"
+    "url": "https://github.com/gritcode/serverless-docker-invoke/issues"
   },
-  "homepage": "https://github.com/gritcode/docker-lambda-file-event#readme",
+  "homepage": "https://github.com/gritcode/serverless-docker-invoke#readme",
   "dependencies": {
     "docker-lambda": "^0.9.1",
-    "tap": "^7.1.2"
+    "tap": "^7.1.2",
+    "yamljs": "^0.2.8",
+    "yargs": "^6.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
